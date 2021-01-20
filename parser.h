@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 #include <math.h>
+#include <GL/glew.h>
+#include <GL/gl.h>
 
 namespace parser
 {
@@ -66,26 +68,31 @@ namespace parser
     struct Mesh
     {
         int material_id;
+        std::vector<unsigned int> indices;
         std::vector<Face> faces;
         std::vector<Transformation> transformations;
         std::string mesh_type;
+
+        GLfloat *normals;
+
+        GLuint vertexAttribBuffer, indexBuffer;
     };
 
     struct Scene
     {
         //Data
-        Vec3i background_color;
-        int culling_enabled;
-        int culling_face;
-        Camera camera;
-        Vec3f ambient_light;
-        std::vector<PointLight> point_lights;
-        std::vector<Material> materials;
-        std::vector<Vec3f> vertex_data;
-        std::vector<Vec3f> translations;
-        std::vector<Vec3f> scalings;
-        std::vector<Vec4f> rotations;
-        std::vector<Mesh> meshes;
+        Vec3i background_color;//done
+        int culling_enabled;//done
+        int culling_face;//done
+        Camera camera;//done
+        Vec3f ambient_light; // done
+        std::vector<PointLight> point_lights; //done
+        std::vector<Material> materials; //done
+        std::vector<Vec3f> vertex_data;//done
+        std::vector<Vec3f> translations;//done
+        std::vector<Vec3f> scalings;//done
+        std::vector<Vec4f> rotations;//done
+        std::vector<Mesh> meshes;//done
 
         //Functions
         void loadFromXml(const std::string& filepath);
