@@ -299,7 +299,7 @@ int main(int argc, char* argv[]) {
     //turnOnLights();
 
      int flag = 1;
-    while(!glfwWindowShouldClose(win) && flag) {
+    while(!glfwWindowShouldClose(win) ) {
         // glfwWaitEvents();
 
         glfwPollEvents();
